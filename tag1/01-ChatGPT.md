@@ -82,3 +82,13 @@ genaue Anweisungen geben, wie das generierte Code-Snippet formatiert und präsen
 - Bevorzuge async/await über Promises
 - Folge den Regeln des AirBnB Code Styles/JavaScript Standards/Google Style
 - Vermeide direkte Mutationen von Objekten und Arrays
+
+## Shell Scripting
+
+`schreibe einen bash einzeiler der mir rekursiv alle node_modules löscht`
+
+`find . -name "node_modules" -type d -prune -exec rm -rf '{}' +`
+
+`liste alle zu löschenden verzeichnisse auf, statt sie zu löschen`
+
+`find . -name "node_modules" -type d -prune`
