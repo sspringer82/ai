@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Adresseingabe Formular</title>
+    <style>
+      .form-grid {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        grid-row-gap: 8px;
+        grid-column-gap: 16px;
+      }
+      .form-grid label {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div class="form-grid">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+
+        <label for="vorname">Vorname:</label>
+        <input type="text" id="vorname" name="vorname" />
+
+        <label for="strasse">Straße:</label>
+        <input type="text" id="strasse" name="strasse" />
+
+        <label for="ort">Ort:</label>
+        <input type="text" id="ort" name="ort" />
+
+        <label for="plz">PLZ:</label>
+        <input type="text" id="plz" name="plz" />
+
+        <label for="land">Land:</label>
+        <input type="text" id="land" name="land" />
+      </div>
+    </form>
+  </body>
+</html>
