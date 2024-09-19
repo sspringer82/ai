@@ -1,0 +1,39 @@
+{
+  "text": " Hallo, das Wetter ist sch\u00f6n. Ich hoffe, die n\u00e4chsten Tage bleibt es so.",
+  "segments": [
+    {
+      "id": 0,
+      "seek": 0,
+      "start": 0.0,
+      "end": 4.32,
+      "text": " Hallo, das Wetter ist sch\u00f6n. Ich hoffe, die n\u00e4chsten Tage bleibt es so.",
+      "tokens": [
+        50364,
+        21242,
+        11,
+        1482,
+        343,
+        27296,
+        1418,
+        13527,
+        13,
+        3141,
+        34903,
+        11,
+        978,
+        19101,
+        29724,
+        24814,
+        785,
+        370,
+        13,
+        50580
+      ],
+      "temperature": 0.0,
+      "avg_logprob": -0.3502724738348098,
+      "compression_ratio": 0.9240506329113924,
+      "no_speech_prob": 0.0014552270295098424
+    }
+  ],
+  "language": "de"
+}

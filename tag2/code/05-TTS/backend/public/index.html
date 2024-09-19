@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Text-to-Speech Formular</title>
+  </head>
+  <body>
+    <form id="ttsForm">
+      <textarea id="textInput" rows="10" cols="50"></textarea><br />
+      <button type="submit">Senden</button>
+    </form>
+
+    <div>
+      The big bug bit the little beetle, but the little beetle bit the big bug
+      back.
+    </div>
+
+    <audio id="audioPlayer" controls style="display: none"></audio>
+
+    <script>
+      document
+        .getElementById('ttsForm')
+        .addEventListener('submit', function (event) {
+          event.preventDefault();
+
+          var text = document.getElementById('textInput').value;
+
+          fetch('/tts', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ text: text }),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error('Netzwerk-Antwort war nicht ok');
+              }
+              return response.arrayBuffer();
+            })
+            .then((arrayBuffer) => {
+              var blob = new Blob([arrayBuffer], { type: 'audio/mpeg' });
+              var url = URL.createObjectURL(blob);
+              var audioPlayer = document.getElementById('audioPlayer');
+              audioPlayer.src = url;
+              audioPlayer.style.display = 'block';
+              // audioPlayer.play();
+            })
+            .catch((error) => {
+              console.error('Es gab ein Problem mit der Fetch-Anfrage:', error);
+            });
+        });
+    </script>
+  </body>
+</html>

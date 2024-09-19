@@ -31,3 +31,5 @@ build/
 
 # Other
 coverage/
+
+audio*.mp3
