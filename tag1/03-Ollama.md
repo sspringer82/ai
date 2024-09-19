@@ -1,3 +1,19 @@
+# Ollama
+https://ollama.com/
+
+Plattform und API zum Zugriff auf LLMs.
+
+- Lokale Ausführung von Modellen (Kontrolle und Datensicherheit)
+- API: eigene + OpenAI-kompatible API
+
+ACHTUNG:
+- genügend RAM
+- Besser GPU als CPU, da schnellere Berechnung
+
+## Installation
+- Direkt auf dem System: MacOS, Linux, Windows
+- Als Container
+
 ## Kommandos
 - serve: ollama starten und ausführen
 - create: Modell aus einer Modelfile erzeugen

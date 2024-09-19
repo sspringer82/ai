@@ -14,11 +14,19 @@ const heuristic = (a, b) => {
   return Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 };
 
+/**
+ * Implements the A* pathfinding algorithm to find the shortest path between two points on a grid.
+ *
+ * @param {number[][]} grid - A 2D array representing the grid where 0 is a walkable cell and any other value is an obstacle.
+ * @param {Object} start - The starting node with properties x (column) and y (row).
+ * @param {Object} end - The ending node with properties x (column) and y (row).
+ * @returns {Object[]|null} - An array of nodes representing the path from start to end, or null if no path is found.
+ */
 const aStar = (grid, start, end) => {
-  const openSet = [start];
-  const closedSet = new Set();
+  const openSet = [start]; // Initialize the open set with the start node
+  const closedSet = new Set(); // Initialize the closed set as an empty set
 
-  const serialize = (node) => `${node.x},${node.y}`;
+  const serialize = (node) => `${node.x},${node.y}`; // Function to serialize a node's coordinates for easy comparison
 
   const neighbors = (node) => {
     const dirs = [
@@ -32,61 +40,61 @@ const aStar = (grid, start, end) => {
       .map(
         (dir) =>
           new Node(
-            node.x + dir.x,
-            node.y + dir.y,
-            node.g + 1,
-            heuristic({ x: node.x + dir.x, y: node.y + dir.y }, end),
-            node
+            node.x + dir.x, // New x coordinate
+            node.y + dir.y, // New y coordinate
+            node.g + 1, // Increment g cost by 1
+            heuristic({ x: node.x + dir.x, y: node.y + dir.y }, end), // Calculate heuristic h
+            node // Set current node as parent
           )
       )
       .filter(
         (neighbor) =>
-          neighbor.x >= 0 &&
-          neighbor.y >= 0 &&
-          neighbor.x < grid[0].length &&
-          neighbor.y < grid.length &&
-          grid[neighbor.y][neighbor.x] === 0
+          neighbor.x >= 0 && // Ensure x is within grid bounds
+          neighbor.y >= 0 && // Ensure y is within grid bounds
+          neighbor.x < grid[0].length && // Ensure x is within grid width
+          neighbor.y < grid.length && // Ensure y is within grid height
+          grid[neighbor.y][neighbor.x] === 0 // Ensure the cell is walkable (not an obstacle)
       );
   };
 
   while (openSet.length > 0) {
-    // Sort by f value (smallest first)
-    openSet.sort((a, b) => a.f - b.f);
-    const current = openSet.shift();
+    openSet.sort((a, b) => a.f - b.f); // Sort open set by f value (smallest first)
+    const current = openSet.shift(); // Remove the node with the smallest f value
 
     if (current.x === end.x && current.y === end.y) {
-      // Reconstruct path
-      const path = [];
-      let temp = current;
+      // If the end node is reached
+      const path = []; // Initialize the path array
+      let temp = current; // Start from the end node
       while (temp) {
-        path.push(temp);
-        temp = temp.parent;
+        path.push(temp); // Add node to path
+        temp = temp.parent; // Move to parent node
       }
-      return path.reverse();
+      return path.reverse(); // Return the reversed path (from start to end)
     }
 
-    closedSet.add(serialize(current));
+    closedSet.add(serialize(current)); // Add current node to closed set
 
-    const neighborNodes = neighbors(current);
+    const neighborNodes = neighbors(current); // Get neighbors of the current node
     for (const neighbor of neighborNodes) {
       if (closedSet.has(serialize(neighbor))) {
-        continue;
+        continue; // Skip if neighbor is already in closed set
       }
 
       const openNode = openSet.find(
         (node) => node.x === neighbor.x && node.y === neighbor.y
-      );
+      ); // Find neighbor in open set
 
       if (!openNode || neighbor.g < openNode.g) {
-        neighbor.f = neighbor.g + neighbor.h;
+        // If neighbor is not in open set or has a better g value
+        neighbor.f = neighbor.g + neighbor.h; // Update f value
         if (!openNode) {
-          openSet.push(neighbor);
+          openSet.push(neighbor); // Add neighbor to open set if not already present
         }
       }
     }
   }
 
-  return null; // No path found
+  return null; // Return null if no path is found
 };
 
 // Example usage
