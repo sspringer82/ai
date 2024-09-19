@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import './Chat.css';
-import { useOpenAiFetch } from './useOpenAiFetch';
+// import { useOpenAiFetch } from './useOpenAiFetch';
+import { useOpenAi } from './useOpenAi';
 // import { useOllamaFetch } from './useOllamaFetch';
 // import { useOllama } from './useOllama';
 
@@ -13,7 +14,8 @@ const Chat: React.FC = () => {
 
   // const [content, onSubmit] = useOllamaFetch(reset);
   // const [content, onSubmit] = useOllama(reset);
-  const [content, onSubmit] = useOpenAiFetch(reset);
+  // const [content, onSubmit] = useOpenAiFetch(reset);
+  const [content, onSubmit] = useOpenAi(reset);
 
   return (
     <div className="container">
