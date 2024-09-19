@@ -1,7 +1,8 @@
 import { useForm } from 'react-hook-form';
 import './Chat.css';
+import { useOpenAiFetch } from './useOpenAiFetch';
 // import { useOllamaFetch } from './useOllamaFetch';
-import { useOllama } from './useOllama';
+// import { useOllama } from './useOllama';
 
 type FormData = {
   text: string;
@@ -11,7 +12,8 @@ const Chat: React.FC = () => {
   const { register, handleSubmit, reset } = useForm<FormData>();
 
   // const [content, onSubmit] = useOllamaFetch(reset);
-  const [content, onSubmit] = useOllama(reset);
+  // const [content, onSubmit] = useOllama(reset);
+  const [content, onSubmit] = useOpenAiFetch(reset);
 
   return (
     <div className="container">
