@@ -1,0 +1,19 @@
+{
+  "name": "04-bewegung",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.1"
+  },
+  "dependencies": {
+    "@tensorflow-models/coco-ssd": "^2.2.3",
+    "@tensorflow/tfjs-backend-cpu": "^4.21.0",
+    "@tensorflow/tfjs-backend-webgl": "^4.21.0"
+  }
+}

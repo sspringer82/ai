@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hintergrundentfernung mit MediaPipe</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      #outputCanvas {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+      }
+      video {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hintergrundentfernung mit MediaPipe</h1>
+    <input type="file" id="imageUpload" accept="image/*" />
+    <br />
+    <canvas id="outputCanvas"></canvas>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
