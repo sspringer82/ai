@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- Copyright 2023 The MediaPipe Authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      #cursor {
+        height: 40px;
+        width: 40px;
+        background-color: hotpink;
+        position: absolute;
+        border-radius: 50%;
+        top: 100px;
+        left: 100px;
+        z-index: 100;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hand landmark detection using the MediaPipe HandLandmarker task</h1>
+
+    <section id="demos">
+      <h2>Demo: Webcam continuous hands landmarks detection</h2>
+      <p>
+        Hold your hand in front of your webcam to get real-time hand landmarker
+        detection.<br />Click <b>enable webcam</b> below and grant access to the
+        webcam if prompted.
+      </p>
+
+      <div id="cursor"></div>
+
+      <div id="liveView" class="videoView">
+        <button id="webcamButton" class="mdc-button mdc-button--raised">
+          <span class="mdc-button__ripple"></span>
+          <span class="mdc-button__label">ENABLE WEBCAM</span>
+        </button>
+        <div style="position: relative">
+          <video
+            id="webcam"
+            style="position: absolute"
+            autoplay=""
+            playsinline=""
+          ></video>
+          <canvas
+            class="output_canvas"
+            id="output_canvas"
+            style="position: absolute; left: 0px; top: 0px"
+          ></canvas>
+        </div>
+      </div>
+    </section>
+    <div>
+      <button id="button">click me</button>
+      <h1 style="display: none" id="hello">Hello World</h1>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
