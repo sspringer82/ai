@@ -1,0 +1,17 @@
+{
+  "name": "02-langchain",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "@langchain/core": "^0.3.40",
+    "@langchain/ollama": "^0.2.0"
+  }
+}
