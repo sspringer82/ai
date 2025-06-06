@@ -1,7 +1,6 @@
 import torch
 from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
 
-# Modellname
 model_name = 'distilbert-base-uncased'
 
 # Tokenizer laden

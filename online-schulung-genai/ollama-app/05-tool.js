@@ -1,7 +1,5 @@
 import ollama from 'ollama';
 
-// Simulates an API call to get flight times
-// In a real application, this would fetch data from a live database or API
 function getWeatherForCity({ city }) {
   switch (city) {
     case 'Berlin':
@@ -16,7 +14,6 @@ function getWeatherForCity({ city }) {
 }
 
 async function run(model) {
-  // Initialize conversation with a user query
   let messages = [
     {
       role: 'user',
@@ -24,7 +21,6 @@ async function run(model) {
     },
   ];
 
-  // First API call: Send the query and function description to the model
   const response = await ollama.chat({
     model: model,
     messages: messages,
@@ -48,10 +44,9 @@ async function run(model) {
       },
     ],
   });
-  // Add the model's response to the conversation history
+
   messages.push(response.message);
 
-  // Check if the model decided to use the provided function
   if (
     !response.message.tool_calls ||
     response.message.tool_calls.length === 0
@@ -61,7 +56,6 @@ async function run(model) {
     return;
   }
 
-  // Process function calls made by the model
   if (response.message.tool_calls) {
     console.log(response.message.tool_calls);
     console.log(response.message.tool_calls[0].function.arguments);
@@ -80,7 +74,6 @@ async function run(model) {
     }
   }
 
-  // Second API call: Get final response from the model
   const finalResponse = await ollama.chat({
     model: model,
     messages: messages,
@@ -88,6 +81,4 @@ async function run(model) {
   console.log(finalResponse.message.content);
 }
 
-run('mistral-nemo').catch((error) =>
-  console.error('An error occurred:', error)
-);
+run('llama3.2').catch((error) => console.error('An error occurred:', error));
