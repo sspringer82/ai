@@ -11,6 +11,11 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "ollama": "^0.6.3"
+    "@langchain/core": "^1.2.3",
+    "@langchain/openai": "^1.5.5",
+    "langchain": "^1.5.3",
+    "ollama": "^0.6.3",
+    "zod": "^4.4.3"
   }
 }
+
