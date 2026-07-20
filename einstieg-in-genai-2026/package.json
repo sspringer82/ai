@@ -1,0 +1,16 @@
+{
+  "name": "einstieg-in-genai-2026",
+  "version": "1.0.0",
+  "description": "- Zig no ai: https://ziglang.org/code-of-conduct/\r - Linux Kernel AI: https://docs.kernel.org/process/coding-assistants.html\r - Elevenlabs Audio: https://elevenlabs.io/\r - Claude Pricing: https://platform.claude.com/docs/en/about-claude/pricing und https://claude.com/pricing\r - Transformer Architektur: https://arxiv.org/pdf/1706.03762\r - Granite Modelle (Transformer + SSM): https://www.ibm.com/de-de/new/announcements/ibm-granite-4-0-hyper-efficient-high-performance-hybrid-models\r - vllm (production grade infrastructure): https://vllm.ai/",
+  "main": "01-base.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "ollama": "^0.6.3"
+  }
+}
